@@ -106,13 +106,12 @@ Consider adding items to the list when you need to support others for legacy sys
 <br>
 
 KexAlgorithms are used when establishing a connection (and rekeying).
-<br> You probably want to use the `curve25519-sha256@libssh.org` key exchange algorithm.
-<br> When unavailable; The diffie-hellman-group-exchange-sha256 is a slow but secure alternative.
-<br> The [curve25519-sha256@libssh.org](https://www.libssh.org/2013/11/03/openssh-introduces-curve25519-sha256libssh-org-key-exchange/) is different from curve25519-sha256.
+<br> You probably want to use the `curve25519-sha256` key exchange algorithm.
+<br> When unavailable; The diffie-hellman-group-exchange-sha256 is your best alternative.
 <br> Read more about [Diffie-Hellman weaknesses](https://cert.europa.eu/static/WhitePapers/CERT-EU-SWP_16-002_Weaknesses%20in%20Diffie-Hellman%20Key%20v1_0.pdf) (page 5). Note that the 'CERT-EU Security Whitepaper 16-002' dates from 2016. In todays standards, 2048-bit should be considered weak as well.
 ```bash
 # Used when establishing a connection (and rekeying).
-KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+KexAlgorithms curve25519-sha256,diffie-hellman-group-exchange-sha256
 ```
 
 <br>
@@ -122,6 +121,7 @@ KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
 
 <br>
 
+- https://anongit.mindrot.org/
 - https://ssh-comparison.quendi.de/impls/openssh.html
 
 
