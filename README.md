@@ -3,14 +3,28 @@ Secure your SSH with ~/.ssh/config
 
 This guide aims to give you an understanding of your SSH-configuration. It contains useful information about finding your default configuration. As well as best practices to setup your own sane defaults. Beginning users should be able to walk through this guide. If not, please open an Issue on this Github page. Your feedback is very much appreciated and will probably help new users as well.
 
+This guide focusses primarily on OpenSSH. Which comes bundled with BSD by default (which also means: Any Apple computer).
+<br> Other users would be using: Portable OpenSSH. The VPS you rent from your provider, which has SSH installed by default; Will probably use OpenSSH. In this case, the Portable version (because Ubuntu is Linux and not BSD). Read more in [your SSH version](#your-ssh-version).
+
 <br>
 <br>
 
-## Default configurations
+## Your SSH version
 
 <br>
 
-Use these as a reference. Do not change anything in the default configuration files. Unless you really know what you are doing and have a specific reason or requirement to do so. In all cases you want to keep your [custom configuration](#custom-configuration) in your home directory.
+Find your SSH version by running the following command in your terminal: `ssh -V`
+<br> To find the full location of the path to the ssh executable, run: `which ssh`
+<br> When you have multiple installations of ssh on your system; You want to make sure you are using the expected one. You can verify this by running the command: `which ssh` and verify the output shows you the expected path.
+
+<br>
+<br>
+
+## Default configuration
+
+<br>
+
+Use these as a reference. Do not change anything in the default configuration files. Unless you really know what you are doing and have a specific reason or requirement to do so. In most cases you want to keep your [custom configuration](#custom-configuration) in your home directory.
 
 <br>
 
@@ -95,8 +109,19 @@ KexAlgorithms are used when establishing a connection (and rekeying).
 <br> You probably want to use the `curve25519-sha256@libssh.org` key exchange algorithm.
 <br> When unavailable; The diffie-hellman-group-exchange-sha256 is a slow but secure alternative.
 <br> The [curve25519-sha256@libssh.org](https://www.libssh.org/2013/11/03/openssh-introduces-curve25519-sha256libssh-org-key-exchange/) is different from curve25519-sha256.
-<br> Read more about [Diffie-Hellman weaknesses](https://cert.europa.eu/static/WhitePapers/CERT-EU-SWP_16-002_Weaknesses%20in%20Diffie-Hellman%20Key%20v1_0.pdf) (page 5).
+<br> Read more about [Diffie-Hellman weaknesses](https://cert.europa.eu/static/WhitePapers/CERT-EU-SWP_16-002_Weaknesses%20in%20Diffie-Hellman%20Key%20v1_0.pdf) (page 5). Note that the 'CERT-EU Security Whitepaper 16-002' dates from 2016. In todays standards, 2048-bit should be considered weak as well.
 ```bash
 # Used when establishing a connection (and rekeying).
 KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
 ```
+
+<br>
+<br>
+
+## Sources and interesting reads
+
+<br>
+
+- https://ssh-comparison.quendi.de/impls/openssh.html
+
+
