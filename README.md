@@ -133,3 +133,5 @@ When you use the older `diffie-hellman-group-exchange-sha256`; You want to (re)g
 - https://www.qualys.com/2016/01/14/cve-2016-0777-cve-2016-0778/openssh-cve-2016-0777-cve-2016-0778.txt
 - http://undeadly.org/cgi?action=article&sid=20160114142733
 - https://superuser.com/a/1225476
+- https://blog.twogate.com/entry/2020/07/30/benchmarking-ssh-connection-what-is-the-fastest-cipher
+- https://soatok.blog/2020/07/12/comparison-of-symmetric-encryption-methods/
